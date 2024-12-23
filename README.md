@@ -11,15 +11,10 @@ Responsive Design: The application is responsive and works well on various devic
 
 State Management: Redux is used for managing the global state of the application.
 
-Error Handling: Provides user feedback in case of errors (e.g., network issues or no results found).
-
 Technologies Used
 
-Next.js: Framework for building React applications with server-side rendering and static site generation.
-
-Redux Toolkit: Simplified state management for the application.
-
-Ant Design: UI components for a sleek and responsive interface.
-
-TypeScript: Ensures type safety throughout the application.
+Next.js
+Redux Toolkit
+Ant Design
+TypeScript
 
