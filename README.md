@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Redux Toolkit TypeScript Example
 
 This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
@@ -27,3 +28,7 @@ pnpm create next-app --example with-redux with-redux-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+=======
+# BookSearchNextjs
+a simple web application that allows users to search for books, view a table of search results, and see detailed information about a selected book.
+>>>>>>> c3a8b664719bbd0f4068211a886e8efc7aedf884
