@@ -1,37 +1,9 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-import styles from "../styles/layout.module.css";
-
-export const Nav = () => {
-  const pathname = usePathname();
-
+const Navbar = () => {
   return (
-    <nav className={styles.nav}>
-      <Link
-        className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
-        href="/"
-      >
-        Home
-      </Link>
-      <Link
-        className={`${styles.link} ${
-          pathname === "/verify" ? styles.active : ""
-        }`}
-        href="/verify"
-      >
-        Verify
-      </Link>
-      <Link
-        className={`${styles.link} ${
-          pathname === "/quotes" ? styles.active : ""
-        }`}
-        href="/quotes"
-      >
-        Quotes
-      </Link>
-    </nav>
+    <div style={{ backgroundColor: '#704d37', padding: '10px' }}>
+      <h1 style={{ color: '#dfc776', margin: 0, fontSize: '24px' }}>Book Finder</h1>
+    </div>
   );
 };
+
+export default Navbar;
