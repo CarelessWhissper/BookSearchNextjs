@@ -9,9 +9,9 @@ const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
   };
 
   const handleButtonClick = () => {
-    console.log("Search button clicked"); // Added log for debugging
+    console.log("Search button clicked"); 
     if (searchQuery.trim()) {
-      console.log("Search query:", searchQuery); // Log search query to check
+      console.log("Search query:", searchQuery); 
       onSearch(searchQuery);
     }
   };
