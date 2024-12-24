@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 // state for the books slice
 interface Book {
@@ -26,27 +27,13 @@ const initialState: BookState = {
 // Async thunk to fetch books from the Open Library API
 export const fetchBooks = createAsyncThunk(
   "books/fetchBooks",
-  async (searchQuery: string, { rejectWithValue }) => {
-    try {
-      const response = await fetch(
-        `https://openlibrary.org/search.json?q=${searchQuery}`
-      );
-      if (!response.ok) {
-        throw new Error('Failed to fetch books');
-      }
-      const data = await response.json();
-      return data.docs.map((book: any) => ({
-        title: book.title,
-        author: book.author_name?.[0] || "Unknown Author",
-        publicationDate: book.first_publish_year || "Unknown Date",
-        description: book.subjects?.join(", ") || "No description available",
-        coverImage: book.cover_i
-          ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-          : "https://via.placeholder.com/150",
-      }));
-    } catch (error: any) {
-      return rejectWithValue(error.message || 'An error occurred');
-    }
+  async (query: string) => {
+    const response = await axios.get(
+      `https://openlibrary.org/search.json?q=${encodeURIComponent(
+        query
+      )}&fields=key,title,author_name,first_publish_year,subject`
+    );
+    return response.data.docs; 
   }
 );
 
