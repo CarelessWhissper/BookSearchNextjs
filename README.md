@@ -1,34 +1,20 @@
-<<<<<<< HEAD
-# Redux Toolkit TypeScript Example
+This is a book search application built using Next.js, Redux, and Ant Design. The application interacts with the Open Library API to provide users with information about books, including their titles, authors, publication dates, and descriptions. The app is designed with a modern and user-friendly interface.
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
 
-**Redux Toolkit**(also known as "RTK" for short) provides a standardized way to write Redux logic. It includes utilities that help simplify many common use cases, including [store setup](https://redux-toolkit.js.org/api/configureStore), [creating reducers and writing immutable update logic](https://redux-toolkit.js.org/api/createreducer), and even [creating entire "slices" of state at once](https://redux-toolkit.js.org/api/createslice). This example showcases each of these features in conjunction with Next.js.
+Features
 
-## Deploy Your Own
+Search Functionality: Users can search for books by entering keywords (e.g., title, author, or genre).
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Pagination: Results are paginated for better usability, displaying a set number of books per page.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
+Responsive Design: The application is responsive and works well on various devices.
 
-## How to Use
+State Management: Redux is used for managing the global state of the application.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Technologies Used
 
-```bash
-npx create-next-app --example with-redux with-redux-app
-```
+Next.js
+Redux Toolkit
+Ant Design
+TypeScript
 
-```bash
-yarn create next-app --example with-redux with-redux-app
-```
-
-```bash
-pnpm create next-app --example with-redux with-redux-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-=======
-# BookSearchNextjs
-a simple web application that allows users to search for books, view a table of search results, and see detailed information about a selected book.
->>>>>>> c3a8b664719bbd0f4068211a886e8efc7aedf884
