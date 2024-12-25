@@ -31,7 +31,7 @@ export const fetchBooks = createAsyncThunk(
     const response = await axios.get(
       `https://openlibrary.org/search.json?q=${encodeURIComponent(
         query
-      )}&fields=key,title,author_name,first_publish_year,subject`
+      )}&fields=key,title,author_name,first_publish_year,subject,isbn`
     );
     return response.data.docs; 
   }

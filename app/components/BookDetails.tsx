@@ -11,16 +11,21 @@ interface BookDetailsProps {
     subject?: string[];
     description?: string;
     cover_i?: number;
+    isbn?: string[];
   };
 }
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   const router = useRouter();
 
-  const getCoverUrl = (coverId: number | undefined) =>
-    coverId
-      ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`
-      : "https://via.placeholder.com/150";
+  const getCoverUrl = (isbn: string[]  | undefined) => {
+    if (isbn && isbn.length > 0) {
+      return `https://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
+    } else {
+      return "https://via.placeholder.com/150";
+    }
+  
+  };
 
   return (
     <div style={{ padding: "20px" }}>
@@ -40,7 +45,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
       </button>
       <div style={{ display: "flex", gap: "20px" }}>
         <img
-          src={getCoverUrl(book.cover_i)}
+          src={getCoverUrl(book.isbn)} 
           alt={`${book.title} cover`}
           style={{ width: "300px", height: "auto", borderRadius: "5px" }}
         />
@@ -68,3 +73,6 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
 };
 
 export default BookDetails;
+
+
+

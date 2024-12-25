@@ -1,20 +1,29 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useParams, useRouter } from "next/navigation";
 import BookDetails from "../../components/BookDetails";
 
-interface Params {
-  title: string;
-}
-
-const DetailsPage = ({ params }: { params: Params }) => {
-  const { title } = params; // Access the dynamic route parameter directly
+const DetailsPage = () => {
+  const params = useParams(); // Retrieve params using useParams
   const router = useRouter();
   const [book, setBook] = useState(null);
+  const [title, setTitle] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!title) return; // Don't proceed if title is not yet available
+    /*
+  params is now a promise in the latest versions of Next.js,
+    Extract `title` from `params` and ensure it's a string
+    */
+    if (params?.title && typeof params.title === "string") {
+      setTitle(params.title);
+    } else {
+      setTitle(null); // Handle cases where `title` is not a string
+    }
+  }, [params]);
+
+  useEffect(() => {
+    if (!title) return; // Wait until the title is available
 
     // Fetch book data based on the title or from local storage
     const bookData = localStorage.getItem("selectedBook");

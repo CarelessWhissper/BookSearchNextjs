@@ -15,6 +15,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.about-p{
+  color: #dfc778;
+}
 /* Ensure the layout adapts to different screen sizes */
 @media (max-width: 768px) {
   .ant-layout-header {
