@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+import { Button } from "antd";
+
 const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -58,21 +60,19 @@ const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
             borderRadius: "5px",
           }}
         />
-        <button
+          <Button
           onClick={handleButtonClick}
           style={{
             backgroundColor: "#704d37",
             color: "#dfc776",
             fontSize: "14px",
             padding: "8px 16px",
-            border: "none",
             borderRadius: "5px",
-            cursor: "pointer",
             width: "50%",
           }}
         >
           Search
-        </button>
+        </Button>
       </div>
     </div>
   );
