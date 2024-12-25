@@ -29,7 +29,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div style={{ padding: "20px" }}>
+      <div style={{ padding: "0px" }}>
         <SearchSection onSearch={handleSearch} />
       </div>
 

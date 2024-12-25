@@ -27,7 +27,7 @@ const SearchResultsCards: React.FC<SearchResultsCardsProps> = ({
 
   // Function to handle card click
   const handleCardClick = (book: Book) => {
-    localStorage.setItem("selectedBook", JSON.stringify(book)); // Save the book data to localStorage
+    localStorage.setItem("selectedBook", JSON.stringify(book)); // Save book data to localStorage
     router.push(`/details/${encodeURIComponent(book.title)}`); // Navigate to the details page
     
   };
@@ -52,7 +52,7 @@ const SearchResultsCards: React.FC<SearchResultsCardsProps> = ({
         {paginatedResults.map((book: Book, index: number) => (
           <div
             key={index}
-            onClick={() => handleCardClick(book)} // Add click handler
+            onClick={() => handleCardClick(book)} //  click handler
             style={{
               width: "300px",
               padding: "20px",
@@ -60,7 +60,7 @@ const SearchResultsCards: React.FC<SearchResultsCardsProps> = ({
               borderRadius: "5px",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               backgroundColor: "#fff",
-              cursor: "pointer", // Show pointer cursor for clickability
+              cursor: "pointer", // Show pointer 
             }}
           >
             <h3>{book.title || "Title not available"}</h3>
