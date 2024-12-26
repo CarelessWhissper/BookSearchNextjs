@@ -15,6 +15,9 @@ interface BookState {
   selectedBook: Book | null;
   loading: boolean;
   error: string | null;
+  currentPage: number; 
+  itemsPerPage: number; 
+  query: string;
 }
 
 const initialState: BookState = {
@@ -22,6 +25,9 @@ const initialState: BookState = {
   selectedBook: null,
   loading: false,
   error: null,
+  currentPage: 1, // Initial page is 1
+  itemsPerPage: 10, // Default number of items per page
+  query: ""
 };
 
 // Async thunk to fetch books from the Open Library API
@@ -37,7 +43,6 @@ export const fetchBooks = createAsyncThunk(
   }
 );
 
-
 // Create the slice for books
 const bookSlice = createSlice({
   name: 'books',
@@ -50,6 +55,21 @@ const bookSlice = createSlice({
     clearResults(state) {
       state.searchResults = [];
     },
+
+    setCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
+
+    setItemsPerPage(state, action: PayloadAction<number>) {
+      state.itemsPerPage = action.payload;
+    },
+    setQuery: (state, action) => {
+      state.query = action.payload;
+    },
+
+    resetPage(state) {
+      state.currentPage = 1; // Reset to page 1
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -67,6 +87,6 @@ const bookSlice = createSlice({
       });
   },
 });
-export const { clearResults } = bookSlice.actions;
-export const { setSelectedBook } = bookSlice.actions;
+
+export const { clearResults, setSelectedBook, setCurrentPage, setItemsPerPage, resetPage,setQuery } = bookSlice.actions;
 export default bookSlice.reducer;

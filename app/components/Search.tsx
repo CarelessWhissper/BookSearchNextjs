@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
 
-import { Button } from "antd";
+import { Button, Tooltip, Input } from "antd";
+
+import { SearchOutlined } from "@ant-design/icons";
+
 
 const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,10 +30,10 @@ const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         height: "400px",
-        width: "100vw", 
+        width: "100vw",
         display: "flex",
-        justifyContent: "center", 
-        alignItems: "center", 
+        justifyContent: "center",
+        alignItems: "center",
         padding: "0",
         margin: "0",
         boxSizing: "border-box",
@@ -47,7 +50,7 @@ const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
           maxWidth: "400px",
         }}
       >
-        <input
+        <Input
           value={searchQuery}
           onChange={handleInputChange}
           placeholder="Enter book info (author, title, genre...)"
@@ -56,27 +59,19 @@ const SearchSection = ({ onSearch }: { onSearch: (query: string) => void }) => {
             padding: "10px",
             fontSize: "16px",
             textAlign: "center",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
           }}
         />
+
+        <Tooltip title="search">
           <Button
-          onClick={handleButtonClick}
-          style={{
-            backgroundColor: "#704d37",
-            color: "#dfc776",
-            fontSize: "14px",
-            padding: "8px 16px",
-            borderRadius: "5px",
-            width: "50%",
-          }}
-        >
-          Search
-        </Button>
+            shape="circle"
+            icon={<SearchOutlined />}
+            onClick={handleButtonClick}
+          />
+        </Tooltip>
       </div>
     </div>
   );
-  
 };
 
 export default SearchSection;

@@ -1,3 +1,4 @@
+
 const Navbar = () => {
   return (
     <div style={{ backgroundColor: "#704d37", padding: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>

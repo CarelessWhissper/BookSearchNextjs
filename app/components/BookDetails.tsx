@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
+import Link from "next/link";
 
 interface BookDetailsProps {
   book: {
@@ -17,8 +18,9 @@ interface BookDetailsProps {
 }
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
-  const router = useRouter();
+ 
   const [description, setDescription] = useState<string | null>(null);
+ 
 
   const getCoverUrl = (isbn: string[] | undefined) => {
     if (isbn && isbn.length > 0) {
@@ -26,8 +28,6 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
     }
     return "https://dummyimage.com/300x450/cccccc/ffffff&text=No+Image";
   };
-  
-  
 
   useEffect(() => {
     const fetchDescription = async () => {
@@ -54,26 +54,26 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <button
-        onClick={() => router.back()}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#704d37",
-          color: "#dfc776",
-          fontSize: "16px",
-          border: "none",
-          cursor: "pointer",
-          marginBottom: "20px",
-        }}
-      >
-        Back to Results
-      </button>
+      <Link href="/">
+        <button
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#704d37",
+            color: "#dfc776",
+            fontSize: "16px",
+            border: "none",
+            cursor: "pointer",
+            marginBottom: "20px",
+          }}
+        >
+          Back to Results
+        </button>
+      </Link>
       <div style={{ display: "flex", gap: "20px" }}>
         <img
           src={getCoverUrl(book.isbn)}
           alt={`${book.title} cover`}
-          style={{ width: "300px", height: "auto", borderRadius: "5px",  flexShrink: 0,  }}
-          
+          style={{ width: "300px", height: "auto", borderRadius: "5px", flexShrink: 0 }}
         />
         <div>
           <h1 style={{color:"#dfc778"}}>{book.title}</h1>

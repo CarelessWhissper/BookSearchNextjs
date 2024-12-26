@@ -27,6 +27,8 @@ const DetailsPage = () => {
 
     // Fetch book data based on the title or from local storage
     const bookData = localStorage.getItem("selectedBook");
+
+    console.log("data in storage",bookData);
     if (bookData) {
       setBook(JSON.parse(bookData));
     } else {
