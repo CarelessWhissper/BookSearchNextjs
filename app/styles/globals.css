@@ -54,3 +54,6 @@ a {
     font-size: 1.2rem;
   }
 }
+.ant-spin-text {
+  color: white !important;
+}

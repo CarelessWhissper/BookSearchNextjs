@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/lib/store";
 import { fetchBooks } from "@/lib/createBookSlice";
 import SearchSection from "../components/Search";
-import SearchResultsCards from "../components/SearchResultsCards";
+import SearchResultsCards from "../components/SearchResultsTable";
 
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
